@@ -1,0 +1,6 @@
+2	c                  1 file/s  FILE:     1.txt 1   
+6	green              1 file/s  FILE:     1.txt 1   
+7	hai                2 file/s  FILE:     1.txt 1     FILE:     2.txt 1   
+7	hellow             2 file/s  FILE:     1.txt 1     FILE:     2.txt 1   
+15	programing         1 file/s  FILE:     1.txt 1   
+22	world              1 file/s  FILE:     2.txt 1   

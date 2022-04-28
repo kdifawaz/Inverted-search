@@ -7,21 +7,32 @@ int create_DB(FILE* *fptr,char *fname,main_node* *head)
     while ( fscanf(*fptr,"%s",word) != EOF)
     {
 
-	if (isupper(word[0]) != 0)
-	{
-	    index = word[0] % 65;
-	}
-	else
-	{
-	    index = word[0] % 97;
-	}
+	index = index_finder(word);	
 
-	       create_node(word,fname,&head[index]);
+	create_node(word,fname,&head[index]);
 
     }
     return SUCCESS;
 
 }
+
+int index_finder(char *word)
+{
+    int index;
+
+    if (isupper(word[0]) != 0)
+    {
+	index = word[0] % 65;
+    }
+    else
+    {
+	index = word[0] % 97;
+    }
+    return index;
+
+
+}
+
 int create_node(char *word,char *fname,main_node **head)
 {
     if(*head == NULL)
@@ -51,7 +62,7 @@ int create_node(char *word,char *fname,main_node **head)
 	if(strcmp(temp_main -> word,word) == 0)
 	{
 	    sub_node *sub_temp = temp_main -> table;
-		sub_node *sub_prev = sub_temp;
+	    sub_node *sub_prev = sub_temp;
 
 	    while(sub_temp)
 	    {
@@ -60,7 +71,7 @@ int create_node(char *word,char *fname,main_node **head)
 		    (sub_temp -> word_count)++;
 		    return SUCCESS;
 		}
-		sub_node *sub_prev = sub_temp;
+		sub_prev = sub_temp;
 		sub_temp = sub_temp -> table;
 	    }
 	    sub_prev -> table = malloc(sizeof(sub_node));

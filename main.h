@@ -25,10 +25,21 @@ typedef struct _main_node
 }main_node;
 
 
+typedef struct _file_list
+{
+    char file_name[20];
+    struct _file_list *link;
+
+}file_list;
+
+int check_file_list(file_list **fhead,char fname[]);
+int search(main_node *head[],char key_word[]);
+void find_node(main_node *head,char key_word[]);
+int index_finder(char *word);
 int open_file(FILE* *fptr,char *name);
 int create_DB(FILE* *fptr,char *fname,main_node **head);
 int create_node(char *word,char *fname,main_node **head);
-void print(main_node *head,int index);
+void print(main_node *head,int index,FILE *stream);
 
 
 
